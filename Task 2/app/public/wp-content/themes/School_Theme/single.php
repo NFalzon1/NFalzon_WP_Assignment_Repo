@@ -9,7 +9,7 @@
                         the_post(); ?>
 
                         <article>
-                            <?php post_class("mt-4 p-4 border"); ?>
+
                             <h2>
                                 <?php the_title(); ?>
                             </h2>
@@ -27,32 +27,10 @@
                             $author_url = get_the_author_meta("user_url");
                             ?>
 
-                            <div class="bg-light">
-                                <div><?php echo get_avatar($author_id,200); ?></div>
-                            </div>
 
-                            <?php
-                            if($author_url){
-                                echo "<p><a href='{$author_url}'>{$author_display}</a></p>";
-                            }else{
-                                echo "<p>{$author_display}</p>";
-                            };
-
-                            if($author_desc){
-                                echo "<p>{$author_desc}</p>";
-                            }
-
-                            if($author_posts > 1){
-                                $posts_word = "Posts";
-                            }else{
-                                $posts_word = "Post";
-                            }
-                            echo "<p><a href='{$author_posts_url}'>{$author_posts} {$posts_word}</a> written by {$author_display}</p>";
-                            
-                            ?>
                         </article>
 
-                        
+
 
                         <?php
                     endwhile;
@@ -62,8 +40,59 @@
             </main>
         </div>
         <div class="col-4">
-      <?php get_sidebar() ?>
-  </div>
+            <?php get_sidebar() ?>
+
+        </div>
+        <div class="bg-light author_desc_post">
+            <div>
+                <div class="author_desc_post_img">
+                    <?php echo get_avatar($author_id, 200); ?>
+                </div>
+                <div class="author_desc_post_content">
+                    <?php
+                    if ($author_url) {
+                        echo "<p><a href='{$author_url}'>{$author_display}</a></p>";
+                    } else {
+                        echo "<p>{$author_display}</p>";
+                    }
+                    ;
+
+                    if ($author_desc) {
+                        echo "<p>{$author_desc}</p>";
+                    }
+
+                    if ($author_posts > 1) {
+                        $posts_word = "Posts";
+                    } else {
+                        $posts_word = "Post";
+                    }
+                    echo "<p><a href='{$author_posts_url}'>{$author_posts} {$posts_word}</a> written by {$author_display}</p>";
+
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <?php
+        if ($author_url) {
+            echo "<p><a href='{$author_url}'>{$author_display}</a></p>";
+        } else {
+            echo "<p>{$author_display}</p>";
+        }
+        ;
+
+        if ($author_desc) {
+            echo "<p>{$author_desc}</p>";
+        }
+
+        if ($author_posts > 1) {
+            $posts_word = "Posts";
+        } else {
+            $posts_word = "Post";
+        }
+        echo "<p><a href='{$author_posts_url}'>{$author_posts} {$posts_word}</a> written by {$author_display}</p>";
+
+        ?>
     </div>
 </div>
 

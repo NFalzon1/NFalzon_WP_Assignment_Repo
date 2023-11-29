@@ -14,15 +14,28 @@
 
 <div id="theme_header">
 
-<div id="logo_image_top">
+<?php $logoPos = get_theme_mod('custom_logo_placement'); ?>
+
+<!-- 
+  get theme get_theme_mod
+  if(top) build top logo
+
+  in nav
+  if left: build lrft logo in nav
+  else, display none on logo
+ -->
+
+
+<div <?php if($logoPos == "top") {echo "id='logo_image_top'";} else {echo "class='display_none'";} ?>>
 <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_theme_mod('diwp_logo'); ?>"/></a>
 </div>
 
 <header class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
-        <?php esc_html(bloginfo('name')); ?>
-      </a>
+    <div <?php if($logoPos == "left") {echo "id='logo_image_left'";} else {echo "class='display_none'";} ?>>
+<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_theme_mod('diwp_logo'); ?>"/></a>
+</div>
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="navbar-nav me-auto mb-2 mb-lg-0 main-menu-div w-100">
           <?php
@@ -40,5 +53,3 @@
     </div>
   </header>
 </div>
-
-    

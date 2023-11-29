@@ -27,11 +27,18 @@ function classExample_themefooter()
     echo "<div class='container-fluid' style='background-color:{$footer_bg};'><div class='row'><div class='col text-center'><p style='color:{$footer_text};'>Built by &copy; Class Example</p></div></div></div>";
 }
 
+function custom_logo_placement(){
+    $top_placement = get_theme_mod("custom_logo_placement", "top");
+    $left_placement = get_theme_mod("custom_logo_placement", "left");
+
+}
+
 add_filter('the_title', 'classExample_h6title');
 
 add_filter('excerpt_length', 'classExample_excerptLength');
 
 add_action('get_footer', 'classExample_themefooter');
+
 
 function classexample_postorderasc($query)
 {
@@ -61,5 +68,7 @@ function diwp_theme_customizer_options($wp_customize){
 }
  
 add_action( 'customize_register', 'diwp_theme_customizer_options' );
+
+
 
 ?>

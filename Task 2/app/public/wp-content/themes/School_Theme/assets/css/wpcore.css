@@ -1,7 +1,51 @@
 #logo_image_top{
   display: flex;
     justify-content: center;
+  height: auto;
 }
+
+#logo_image_top img{
+  width: 200px;
+}
+
+#logo_image_left img{
+  display: flex;
+    justify-content: center;
+    width: 200px
+}
+
+.display_none{
+  display: none;
+}
+
+.background-image{
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+  opacity: 50%;
+}
+
+.author_desc_post{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.author_desc_post_content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.pr_title h6{
+  font-size: 32px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
 
 
 .menu-primary-menu-container{

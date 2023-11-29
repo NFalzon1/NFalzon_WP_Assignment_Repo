@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /*
-Theme Name: Class Example
+Theme Name: School Theme
 Theme URI: https://wordpress.org/themes/classExample/
 Author: Nicholas Falzon
 Author URI: https://wordpress.org/
@@ -20,6 +20,3 @@ Twenty Twenty-One is distributed under the terms of the GNU GPL.
 */
 
 
-.footerStyle{
-    display: flex;
-}

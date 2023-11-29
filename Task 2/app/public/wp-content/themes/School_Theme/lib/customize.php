@@ -1,6 +1,29 @@
 <?php 
 
 function custom_customize_register($wp_customize){
+
+    $wp_customize->add_section('custom_nav_options', array(
+        'title'=> 'Navigation Options',
+        'description'=> 'You can change the navigation options here'
+    ));
+
+    $wp_customize->add_setting('custom_logo_placement', array(
+        'default'=>'top',
+        'sanitize_callback'=>'sanitize_text_field'
+    ));
+
+
+    $wp_customize->add_control('custom_logo_placement', array(
+        'type'=>'select',
+        'label'=>'Logo Placement',
+        'choices'=> array(
+            'top'=>'Top',
+            'left'=>'Left'
+        ),
+        'section'=> 'custom_nav_options'
+    ));
+ 
+
     $wp_customize->add_section('custom_footer_options', array(
         'title'=> 'Footer Options',
         'description'=> 'You can change footer here'
@@ -46,7 +69,7 @@ function custom_customize_register($wp_customize){
     );
 
     $wp_customize->add_setting('custom_footer_widget_count',array(
-        'default'=> '2',
+        'default'=> '3',
         'sanitize_callback'=>'sanitize_text_field'
     ));
 
@@ -57,11 +80,13 @@ function custom_customize_register($wp_customize){
             '1'=>'1 Widget',
             '2'=>'2 Widget',
             '3'=>'3 Widget',
-            '4'=>'4 Widget',
         ),
 
         'section'=> 'custom_footer_options'
     ));
+
+
+    
 
 }
 
