@@ -1,3 +1,5 @@
+/* Logo placement (top/left) */
+
 #logo_image_top{
   display: flex;
     justify-content: center;
@@ -17,6 +19,63 @@
 .display_none{
   display: none;
 }
+
+/* Drop Down Menu */
+.navbar ul ul {
+  display: none;
+  position: absolute;
+  top: 3em;
+  left: 0;
+  z-index: 99999;
+  width: 180px;
+  background: #fff;
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar ul li:hover > ul {
+  display: block;
+}
+
+/* CSS for Navbar */
+.menu-primary-menu-container{
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.menu-primary-menu-container ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 0;
+  width: 100%;
+  align-items: center;
+}
+
+.menu-primary-menu-container ul li h6{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#menu-primary-menu li{
+  display: flex;
+  text-decoration: none;
+}
+#menu-primary-menu li h6{ 
+  color: black;
+  
+}
+
+.card-css{
+  display: flex;
+}
+
+
 
 .background-image{
   padding-top: 50px;
@@ -47,35 +106,6 @@
 }
 
 
-
-.menu-primary-menu-container{
-  width: 100%;
-  padding-left: 15%;
-  padding-right: 15%;
-}
-
-.menu-primary-menu-container ul{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 0;
-  width: 100%;
-}
-
-.menu-primary-menu-container ul li h6{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-#menu-primary-menu li{
-  display: flex;
-  text-decoration: none;
-}
-#menu-primary-menu li h6{ 
-  color: black;
-  
-}
 
 
 .theme-main-menu{
