@@ -85,6 +85,31 @@ function custom_customize_register($wp_customize){
         'section'=> 'custom_footer_options'
     ));
 
+    $wp_customize->add_section('custom_gen_options', array(
+        'title'=> 'General Settings',
+        'description'=> 'You can change the navigation options here'
+        
+    ));
+
+    
+    $wp_customize->add_setting('custom_gen_col_count',array(
+        'default'=> '3',
+        'sanitize_callback'=>'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('custom_gen_col_count',array(
+        'type'=>'select',
+        'label'=> 'Column Count',
+        'description' => '<img src="' . esc_url(get_template_directory_uri() . '/images/1.jpeg') . '" alt="Custom Section Image">',
+        'choices'=>array(
+            '2'=>'2 Columns',
+            '3'=>'3 Columns',
+            '4'=>'4 Columns',
+            '5'=>'5 Columns',
+        ),
+
+        'section'=> 'custom_gen_options'
+    ));
 
     
 

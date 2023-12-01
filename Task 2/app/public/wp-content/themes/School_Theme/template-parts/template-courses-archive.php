@@ -1,12 +1,14 @@
 <?php
+
+$noColumns = get_theme_mod('custom_gen_col_count', '3');
 /*
-Template Name: Press Releases 
+Template Name: All Courses Template
 */
 get_header(); // Include header template
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8">
+        <div class="col">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
@@ -14,7 +16,7 @@ get_header(); // Include header template
                     <div class="row">
                         <?php
                         $args = array(
-                            'post_type' => 'prs', // Replace with your actual custom post type slug
+                            'post_type' => 'courses', // Replace with your actual custom post type slug
                             'posts_per_page' => -1, // Display all posts
                         );
 
@@ -27,18 +29,20 @@ get_header(); // Include header template
                                 ?>
                                 <div class="col">
                                     <div class="card" style="col">
-                                        <img class="card-img-top" src="<?php echo get_the_post_thumbnail(); ?>">
-                                        <div class=" card-body">
+                                        <div class="card-body">
                                             <h5 class="card-title">
                                                 <?php the_title(); ?>
                                             </h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up
+                                                the bulk of the card's content.</p>
                                         </div>
-
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"></i>
+                                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                                            <li class="list-group-item">Vestibulum at eros</li>
+                                        </ul>
                                         <div class="card-body">
-                                            <p class="card-text">
-                                                <?php the_excerpt(); ?>
-                                            </p>
-                                            <a href="<?php the_permalink();?>" class="btn btn-primary">Read More...</a>
+                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More...</a>
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +51,7 @@ get_header(); // Include header template
                                 $count++;
 
                                 // If it's the second card in the row, close the row div and start a new row
-                                if ($count % 3 === 0) {
+                                if ($count % $noColumns === 0) {
                                     echo '</div><div class="row">';
                                 }
                             endwhile;
@@ -65,10 +69,7 @@ get_header(); // Include header template
                 </main>
             </div>
         </div>
-        <div class="col-4">
-            <?php get_sidebar() ?>
-
-        </div>
+       
     </div>
 
     <?php
