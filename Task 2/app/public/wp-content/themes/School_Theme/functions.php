@@ -150,7 +150,7 @@ function courses_menu_page()
             <label for="course_details">Course Details:</label> <br>
             <textarea type="text" id="course_details" name="course_details" name="course_details"
                 style="width:400px; height:100px;">
-                </textarea>
+                                </textarea>
 
             <br><br>
 
@@ -171,18 +171,39 @@ function handle_new_course_submission()
         $course_code = sanitize_text_field($_POST['course_code']);
         $course_duration = sanitize_text_field($_POST['course_duration']);
         $course_details = sanitize_text_field($_POST['course_details']);
-        $course_category = sanitize_text_field($_POST['course_category']);
-
-       
-
-        $content .= '<p><strong>Course Code:</strong> ' . $course_code . '<br> <strong>Course Duration:</strong>' . $course_duration . '<br> ' . '<strong>Course Category:</strong>' . $course_category. '</p> <br> <strong>Course Description:</strong>' . $course_details . '</p>';
         
+
+        // Inside the WordPress loop
+        $selected_category_id = sanitize_text_field($_POST['course_category']); // Adjust the field name accordingly
+
+        // Get the category name based on the ID
+        $category_name = '';
+
+        if (!empty($selected_category_id)) {
+            $category = get_term($selected_category_id, 'course_categories');
+
+            if ($category && !is_wp_error($category)) {
+                $category_name = $category->name;
+            }
+        }
+
+        // Display the category name
+        echo 'Selected Category: ' . esc_html($category_name);
+
+
+        $taxonomy_slug = 'course_categories';
+        
+        $content .= '<p><strong>Course Code:</strong> ' . $course_code . '<br> <strong>Course Duration:</strong>' . $course_duration . '<br> ' . '<strong>Course Category: </strong>' . $category_name . '</p> <br> <strong>Course Description:</strong>' . $course_details . '</p>';
+
         // Create a new course post
         $course_args = array(
             'post_title' => $course_title,
             'post_content' => $content,
             'post_status' => 'publish',
             'post_type' => 'courses', // Your custom post type slug
+            'tax_input'    => array(
+                $taxonomy_slug => array($category_name),
+            ),
         );
 
         $course_id = wp_insert_post($course_args);

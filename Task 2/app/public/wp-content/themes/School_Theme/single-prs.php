@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="background-image">
-    <?php echo get_the_post_thumbnail(); ?>
+    <img src="<?php echo get_theme_mod('diwp_logo'); ?>" />
 
 </div>
 <div class="pr_title">

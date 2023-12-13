@@ -5,7 +5,27 @@ $noColumns = get_theme_mod('custom_gen_col_count', '3');
 Template Name: All Courses Template
 */
 get_header(); // Include header template
+
+$course_categories = get_terms(
+    array(
+        'taxonomy' => 'course_categories', // Adjust the taxonomy if needed
+        'hide_empty' => false,
+    )
+);
+
+
 ?>
+<div class="course-category-boxes">
+    <?
+    foreach ($course_categories as $category) {
+        echo '<div class="course-category-box" data-category="' . esc_attr($category->slug) . '">';
+        echo '<a href="?id='.esc_html($category->name).'">' . esc_html($category->name) . '</a>';
+        echo '</div>';
+    } ?>
+</div>
+
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -33,16 +53,12 @@ get_header(); // Include header template
                                             <h5 class="card-title">
                                                 <?php the_title(); ?>
                                             </h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up
-                                                the bulk of the card's content.</p>
                                         </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"></i>
-                                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                                            <li class="list-group-item">Vestibulum at eros</li>
-                                        </ul>
+                                        <!--<ul class="list-group list-group-flush">
+                                            <li class="list-group-item"></li>
+                                        </ul>-->
                                         <div class="card-body">
-                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More...</a>
+                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -69,9 +85,10 @@ get_header(); // Include header template
                 </main>
             </div>
         </div>
-       
+
     </div>
 
     <?php
     get_footer(); // Include footer template
     ?>
+

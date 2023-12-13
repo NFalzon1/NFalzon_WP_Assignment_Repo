@@ -8,8 +8,6 @@
 
 
 
-<h1>Index</h1>
-
 <div class="container">
   <div class="row">
     <div class="col-8">
