@@ -81,11 +81,47 @@
   padding-top: 50px;
 }
 
-#arc_email{
+.noPosts{
+  text-align: center;
+  font-size: 20px;
+}
+
+.archiveAuthor{
+  border-radius: 10px;
+  background: #cccccc;
+  padding: 20px;
+  width: 200px;
+  height: 100%;
+}
+
+.pagination{
   display: flex;
+  justify-content: center;
+    flex-direction: row;
 }
 
 
+.archiveCardHeader{
+  display: flex;
+}
+
+.archiveCardHeader img{
+  height: auto;
+  width: 200px
+}
+
+.btnfullwidth{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#authorInfo{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
 
 .background-image{

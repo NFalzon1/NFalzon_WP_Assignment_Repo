@@ -1,5 +1,7 @@
 <?php
 
+
+
 $noColumns = get_theme_mod('custom_gen_col_count', '3');
 /*
 Template Name: All Courses Template
@@ -19,11 +21,16 @@ $course_categories = get_terms(
     <?
     foreach ($course_categories as $category) {
         echo '<div class="course-category-box" data-category="' . esc_attr($category->slug) . '">';
-        echo '<a href="?id='.esc_html($category->name).'">' . esc_html($category->name) . '</a>';
+        echo '<a href="?courseID='.esc_html($category->name).'">' . esc_html($category->name) . '</a>';
         echo '</div>';
     } ?>
 </div>
 
+<?php 
+
+$courseID = sanitize_text_field($_GET['courseID']);
+
+//echo $courseID; ?>
 
 
 <div class="container-fluid">
@@ -40,6 +47,18 @@ $course_categories = get_terms(
                             'posts_per_page' => -1, // Display all posts
                         );
 
+                        $query = new WP_Query($args);
+
+                        if ($courseID) {
+                            $args['tax_query'] = array(
+                                array(
+                                    'taxonomy' => 'course_categories',
+                                    'field'    => 'name',
+                                    'terms'    => $courseID,
+                                ),
+                            );
+                        }
+                        
                         $query = new WP_Query($args);
 
                         if ($query->have_posts()):
@@ -77,7 +96,7 @@ $course_categories = get_terms(
 
                         else:
                             // No posts found
-                            echo 'No posts found';
+                            echo '<p class="noPosts">No courses are found under the '.$courseID.' category.</p>';
 
                         endif;
                         ?>
