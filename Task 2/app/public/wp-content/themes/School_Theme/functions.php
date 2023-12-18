@@ -24,7 +24,7 @@ function classExample_themefooter()
     $footer_text = get_theme_mod("custom_theme_footer_text", "#fffff");
 
 
-    echo "<div class='container-fluid' style='background-color:{$footer_bg};'><div class='row'><div class='col text-center'><p style='color:{$footer_text};'>Built by &copy; Class Example</p></div></div></div>";
+    echo "<div class='container-fluid' style='background-color:{$footer_bg};'><div class='row'><div class='col text-center'><p style='color:{$footer_text};'>Built by &copy; Nicholas Falzon</p></div></div></div>";
 }
 
 function custom_logo_placement()
@@ -230,6 +230,8 @@ function remove_add_new_submenu()
 }
 
 add_action('admin_menu', 'remove_add_new_submenu');
+
+
 
 
 

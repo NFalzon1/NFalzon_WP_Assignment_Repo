@@ -1,7 +1,11 @@
+<script src="https://kit.fontawesome.com/ed3821a1ee.js" crossorigin="anonymous"></script>
+
+
 <form 
     action="<?php echo home_url(''); ?>"
     method="GET"
     >
+    <div id="searchdiv">
 
     <input
      type="search"
@@ -10,6 +14,7 @@
      placeholder="Search..."
      >
 
-     <button type="submit">Search</button>
+     <button id="searchButton" type="submit">Search</button>
+     </div>
 
 </form>

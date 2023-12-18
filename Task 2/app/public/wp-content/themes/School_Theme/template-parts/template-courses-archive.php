@@ -66,19 +66,15 @@ $courseID = sanitize_text_field($_GET['courseID']);
                             while ($query->have_posts()):
                                 $query->the_post();
                                 ?>
-                                <div class="col">
+                                <div class="col courseCard">
                                     <div class="card" style="col">
-                                        <div class="card-body">
+                                    <a href="<?php the_permalink(); ?>">
+                                        <div class="card-body coursesText">
                                             <h5 class="card-title">
                                                 <?php the_title(); ?>
                                             </h5>
                                         </div>
-                                        <!--<ul class="list-group list-group-flush">
-                                            <li class="list-group-item"></li>
-                                        </ul>-->
-                                        <div class="card-body">
-                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <?php

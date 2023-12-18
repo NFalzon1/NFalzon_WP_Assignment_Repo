@@ -17,7 +17,7 @@ for ($i = 0; $i < $footer_layout; $i++) {
   }
 }
 if ($sidebars_active):
-  echo "<div class='container-fluid'><div class='row'>";
+  echo "<div class='container-fluid'><div class='row footer-css'>";
   for ($i = 0; $i < $footer_layout; $i++):
     echo "<div class='col'>";
     if (is_active_sidebar('footer-sidebar-' . ($i + 1))) {
@@ -34,16 +34,12 @@ endif;
 
 <div class="container-fluid footerStyle <?php echo $footer_class . " " . $footer_text ?>">
   <div class="row">
-
-
-
   </div>
 
-
 </div>
-<!-- Footer -->
+<div class='container-fluid' style='background-color:<?php echo $footer_bg ?>;'>
 <?php wp_footer(); ?>
-
+</div>
 
 
 </body>

@@ -16,6 +16,7 @@
     width: 200px
 }
 
+
 .display_none{
   display: none;
 }
@@ -24,12 +25,16 @@
 .navbar ul ul {
   display: none;
   position: absolute;
-  top: 3em;
+  top: 2em;
   left: 0;
   z-index: 99999;
-  width: 180px;
+  width:max-content;
   background: #fff;
   box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+}
+
+.navbar ul li a{
+  text-decoration: none;
 }
 
 .navbar li {
@@ -50,10 +55,10 @@
 .menu-primary-menu-container ul{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding-left: 0;
   width: 100%;
-  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .menu-primary-menu-container ul li h6{
@@ -69,6 +74,45 @@
 #menu-primary-menu li h6{ 
   color: black;
   
+}
+
+#searchdiv{
+  display: flex;
+  border-radius: 20px;
+  border-color: black;
+}
+
+#btnSearch{
+  border: none;
+}
+
+#searchButton{
+  border: none;
+}
+
+.border{
+  border: black;
+  border-radius: 10px;
+}
+
+
+.blockCenter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.padding-top-bottom{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+.footer-css{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .card-css{
@@ -92,6 +136,24 @@
   padding: 20px;
   width: 200px;
   height: 100%;
+}
+
+.courseCard{
+  padding: 30px;
+  color: black;
+}
+
+
+.coursesText{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+
+.card a{
+text-decoration: none;
 }
 
 .pagination{
