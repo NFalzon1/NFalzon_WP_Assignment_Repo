@@ -7,7 +7,7 @@ get_header(); // Include header template
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8">
+        <div class="col-8 paddinglfrt">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
@@ -69,11 +69,20 @@ get_header(); // Include header template
                 </main>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <?php get_sidebar() ?>
 
         </div>
     </div>
+
+    <?php 
+    the_posts_pagination(array(
+        'mid_size' => 1,
+        'prev_text' => "Newer",
+        'next_text' => "Older"
+      )); //shows the pagination | mid_size controls how many other paginations are shown on both sides
+      ?>
+    ?>
 
     <?php
     get_footer(); // Include footer template

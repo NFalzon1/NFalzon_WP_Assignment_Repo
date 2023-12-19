@@ -22,6 +22,12 @@
 }
 
 /* Drop Down Menu */
+
+.paddinglfrt{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
 .navbar ul ul {
   display: none;
   position: absolute;
@@ -186,17 +192,28 @@ text-decoration: none;
 }
 
 
-.background-image{
-  padding-top: 50px;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 50px;
-  opacity: 70%;
+.background-image-container{
+  position: relative;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with 0.7 opacity */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
 }
 
-.background-image img{
+.background-image-container img{
   width: 200px;
   height: auto;
+  opacity: 100%;
+}
+
+.text-align{
+  text-align: justify;
+  font-size: 16px;
 }
 
 .author_desc_post{

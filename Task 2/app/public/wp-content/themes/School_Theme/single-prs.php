@@ -1,9 +1,10 @@
 <?php get_header(); ?>
 
-<div class="background-image">
+<div class="background-image-container">
     <img src="<?php echo get_theme_mod('diwp_logo'); ?>" />
 
 </div>
+
 <div class="pr_title">
     <h2>
         <?php the_title(); ?>
@@ -12,8 +13,8 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-8">
+    <div class="row prsRow">
+        <div class="col-7">
             <main>
                 <?php if (have_posts()):
                     while (have_posts()):

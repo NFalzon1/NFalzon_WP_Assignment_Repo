@@ -218,6 +218,31 @@ function handle_new_course_submission()
     }
 }
 
+function set_featured_image_for_press_releases() {
+    // Get the URL of the current logo from theme customization
+    $logo_url = get_theme_mod('diwp_logo'); // Assuming 'custom_logo' is the setting ID
+
+    // If the logo URL is found
+    if ($logo_url) {
+        // Get the ID of the attachment for the current logo
+        $logo_attachment_id = attachment_url_to_postid($logo_url);
+
+        // Get all press releases
+        $press_releases = get_posts(array(
+            'post_type' => 'prs', // Replace with your custom post type name
+            'posts_per_page' => -1,
+        ));
+
+        // Loop through press releases and set the featured image
+        foreach ($press_releases as $press_release) {
+            set_post_thumbnail($press_release->ID, $logo_attachment_id);
+        }
+    }
+}
+
+// Hook this function to run once
+add_action('after_setup_theme', 'set_featured_image_for_press_releases');
+
 
 
 // Hook into WordPress admin actions

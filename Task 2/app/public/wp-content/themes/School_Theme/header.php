@@ -35,7 +35,7 @@
       <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_theme_mod('diwp_logo'); ?>" /></a>
     </div>
 
-    <header class="navbar navbar-expand-lg">
+    <header class="navbar navbar-expand-lg paddinglfrt">
       <div class="container-fluid">
         <div <?php if ($logoPos == "left") {
           echo "id='logo_image_left'";

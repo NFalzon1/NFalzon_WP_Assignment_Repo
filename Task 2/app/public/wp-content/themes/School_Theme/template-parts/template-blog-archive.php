@@ -7,7 +7,7 @@ get_header(); // Include header template
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8">
+        <div class="col-8 paddinglfrt">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
@@ -27,7 +27,7 @@ get_header(); // Include header template
                                 $query->the_post();
                                 ?>
                                 <div class="col">
-                                    <div class="card" style="col">
+                                    <div class="card" style="col" >
                                         <img class="card-img-top" src= <?php echo get_the_post_thumbnail(); ?>
                                         <div class=" card-body">
                                             <h5 class="card-title">
@@ -70,7 +70,7 @@ get_header(); // Include header template
                 </main>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <?php get_sidebar() ?>
 
         </div>

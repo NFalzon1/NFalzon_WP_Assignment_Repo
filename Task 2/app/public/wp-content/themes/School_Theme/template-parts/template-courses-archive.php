@@ -28,7 +28,10 @@ $course_categories = get_terms(
 
 <?php 
 
-$courseID = sanitize_text_field($_GET['courseID']);
+
+$courseID = isset($_GET['courseID']) ? sanitize_text_field($_GET['courseID']) : '';
+
+
 
 //echo $courseID; ?>
 
