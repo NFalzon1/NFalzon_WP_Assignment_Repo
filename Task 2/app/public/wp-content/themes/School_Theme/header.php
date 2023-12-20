@@ -59,10 +59,7 @@
             );
             ?>
           </div>
-          <form class="d-flex" role="search">
               <?php get_search_form(); ?>
-              <i class="fa-regular fa-magnifying-glass"></i>
-          </form>
         </div>
       </div>
     </header>

@@ -7,7 +7,7 @@ get_header(); // Include header template
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8 paddinglfrt">
+        <div class="col">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">

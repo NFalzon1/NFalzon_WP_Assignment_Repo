@@ -34,7 +34,7 @@ function custom_logo_placement()
 
 }
 
-add_filter('the_title', 'classExample_h6title');
+//add_filter('the_title', 'classExample_h6title');
 
 add_filter('excerpt_length', 'classExample_excerptLength');
 

@@ -31,7 +31,7 @@
 .navbar ul ul {
   display: none;
   position: absolute;
-  top: 2em;
+  top: 1.5em;
   left: 0;
   z-index: 99999;
   width:max-content;
@@ -47,8 +47,17 @@
   position: relative;
 }
 
-.navbar ul li:hover > ul {
-  display: block;
+.navbar ul li:hover ul {
+  display:block;
+}
+
+.menu li a{
+  color:black;
+  font-weight: none;
+}
+
+.sub-menu li {
+padding-bottom: 10%;
 }
 
 /* CSS for Navbar */

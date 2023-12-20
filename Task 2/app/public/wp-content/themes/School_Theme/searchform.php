@@ -1,9 +1,7 @@
-<script src="https://kit.fontawesome.com/ed3821a1ee.js" crossorigin="anonymous"></script>
-
-
 <form 
-    action="<?php echo home_url(''); ?>"
+    action="<?php echo esc_url(home_url('/')); ?>"
     method="GET"
+    class="d-flex" role="search"
     >
     <div id="searchdiv">
 
