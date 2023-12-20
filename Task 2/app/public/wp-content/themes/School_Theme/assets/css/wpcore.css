@@ -276,6 +276,10 @@ text-decoration: none;
   background-color: #f0f0f0; /* Background color on hover */
 }
 
+.wp-element-caption{
+  font-size: 32px;
+}
+
 /* Course CSS */
 
 .course {
