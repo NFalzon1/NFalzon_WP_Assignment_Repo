@@ -245,6 +245,10 @@ text-decoration: none;
   padding-bottom: 50px;
 }
 
+.aboutUsContainer{
+  display: flex;
+}
+
 /* Course Categories Boxes */
 
 .course-category-boxes {

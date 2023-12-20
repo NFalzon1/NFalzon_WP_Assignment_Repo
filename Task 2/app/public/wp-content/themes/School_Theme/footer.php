@@ -1,5 +1,6 @@
 <?php
 $footer_bg = get_theme_mod('custom_footer_bg', 'dark');
+$footer_backgroundcolour = get_theme_mod("custom_theme_footer_bg", "#ffc107");
 $footer_class = "bg-" . $footer_bg;
 
 $footer_text = "text-light";
@@ -30,14 +31,10 @@ endif;
 ?>
 
 
-
-
-<div class="container-fluid footerStyle <?php echo $footer_class . " " . $footer_text ?>">
-  <div class="row">
-  </div>
+<div class="container-fluid footerStyle <?php echo $footer_class . "" . $footer_text ?>">
 
 </div>
-<div class='container-fluid' style='background-color:<?php echo $footer_bg ?>;'>
+<div class='container-fluid' style='background-color:<?php echo $footer_backgroundcolour ?>;'>
 <?php wp_footer(); ?>
 </div>
 
