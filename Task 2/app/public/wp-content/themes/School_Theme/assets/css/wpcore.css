@@ -21,12 +21,55 @@
   display: none;
 }
 
+.card-body{
+  flex-grow: 1;
+}
+
+.card{
+  height: 50px;
+}
+
+.cardRow{
+  display: flex;
+}
+
+.container-fluid{
+  max-width: 90%;
+}
+.card-img-top{
+height: 50%; /* Set the height to 50% of the container */
+object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;}
+
+.pageTitle h1{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.cardButton{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: stretch;
+  flex-direction: column;
+}
+
+.card-title{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.card-body p{
+  font-size: 16px;
+  text-align: justify;
+}
+
+
 /* Drop Down Menu */
 
-.paddinglfrt{
-  margin-left: 100px;
-  margin-right: 100px;
-}
 
 .navbar ul ul {
   display: none;

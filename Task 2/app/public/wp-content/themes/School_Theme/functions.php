@@ -15,7 +15,7 @@ function classExample_h6title($title)
 
 function classExample_excerptLength($words)
 {
-    return 15;
+    return 8;
 }
 
 function classExample_themefooter()
