@@ -1,6 +1,9 @@
 <?php
 
-
+$button_bg = get_theme_mod("custom_button_bg", "#ffffff");
+$button_text = get_theme_mod("custom_button_text", "#ffffff");
+$button_hover = get_theme_mod("custom_button_hover", "#ffffff");
+$btnText_hover = get_theme_mod("custom_buttonText_hover", "#ffffff");
 
 $noColumns = get_theme_mod('custom_gen_col_count', '3');
 /*
@@ -17,16 +20,25 @@ $course_categories = get_terms(
 
 
 ?>
+<p>
+    <?php echo $btnText_hover ?>
+</p>
+<div class="pageTitle">
+    <h1>
+        <?php the_title(); ?>
+    </h1>
+</div>
+
 <div class="course-category-boxes">
     <?
     foreach ($course_categories as $category) {
         echo '<div class="course-category-box" data-category="' . esc_attr($category->slug) . '">';
-        echo '<a href="?courseID='.esc_html($category->name).'">' . esc_html($category->name) . '</a>';
+        echo '<a href="?courseID=' . esc_html($category->name) . '">' . esc_html($category->name) . '</a>';
         echo '</div>';
     } ?>
 </div>
 
-<?php 
+<?php
 
 
 $courseID = isset($_GET['courseID']) ? sanitize_text_field($_GET['courseID']) : '';
@@ -34,6 +46,8 @@ $courseID = isset($_GET['courseID']) ? sanitize_text_field($_GET['courseID']) : 
 
 
 //echo $courseID; ?>
+
+
 
 
 <div class="container-fluid">
@@ -56,12 +70,12 @@ $courseID = isset($_GET['courseID']) ? sanitize_text_field($_GET['courseID']) : 
                             $args['tax_query'] = array(
                                 array(
                                     'taxonomy' => 'course_categories',
-                                    'field'    => 'name',
-                                    'terms'    => $courseID,
+                                    'field' => 'name',
+                                    'terms' => $courseID,
                                 ),
                             );
                         }
-                        
+
                         $query = new WP_Query($args);
 
                         if ($query->have_posts()):
@@ -70,13 +84,16 @@ $courseID = isset($_GET['courseID']) ? sanitize_text_field($_GET['courseID']) : 
                                 $query->the_post();
                                 ?>
                                 <div class="col courseCard">
-                                    <div class="card" style="col">
-                                    <a href="<?php the_permalink(); ?>">
-                                        <div class="card-body coursesText">
-                                            <h5 class="card-title">
-                                                <?php the_title(); ?>
-                                            </h5>
-                                        </div>
+                                    <div class="card" style="col; background-color:<?php echo $button_bg ?>">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <div class="card-body coursesText"
+                                                onMouseOver="this.style.color='<?php echo $btnText_hover ?>'"
+                                                onMouseOut="this.style.color='<?php echo $button_text ?>'"
+                                                style="color: <?php echo $button_text; ?>">
+                                                <h5 class="card-title">
+                                                    <?php the_title(); ?>
+                                                </h5>
+                                            </div>
                                         </a>
                                     </div>
                                 </div>
@@ -95,7 +112,7 @@ $courseID = isset($_GET['courseID']) ? sanitize_text_field($_GET['courseID']) : 
 
                         else:
                             // No posts found
-                            echo '<p class="noPosts">No courses are found under the '.$courseID.' category.</p>';
+                            echo '<p class="noPosts">No courses are found under the ' . $courseID . ' category.</p>';
 
                         endif;
                         ?>
@@ -110,3 +127,10 @@ $courseID = isset($_GET['courseID']) ? sanitize_text_field($_GET['courseID']) : 
     get_footer(); // Include footer template
     ?>
 
+    <style>
+        .card :hover {
+            background-color:
+                <?php echo $button_hover ?>
+            ;
+        }
+    </style>

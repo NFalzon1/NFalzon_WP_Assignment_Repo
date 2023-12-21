@@ -3,6 +3,15 @@
 Template Name: Press Releases Template
 */
 $noColumns = get_theme_mod('custom_gen_col_count', '3');
+
+$button_bg = get_theme_mod("custom_button_bg", "#ffffff");
+$button_text = get_theme_mod("custom_button_text", "#ffffff");
+
+
+$card_bg = get_theme_mod("custom_card_bg", "#ffffff");
+$card_text = get_theme_mod("custom_card_text", "#ffffff");
+
+
 get_header(); // Include header template
 ?>
 <div class="pageTitle">
@@ -31,17 +40,17 @@ get_header(); // Include header template
                             while ($query->have_posts()):
                                 $query->the_post();
                                 ?>
-                                <div class="col" style="padding-bottom: 10%;">
-                                    <div class="card" style="col">
+                                <div class="col colCard" style="padding-bottom: 10%; " >
+                                    <div class="card" style="col; background-color:<?php echo $card_bg ?>" >
                                         <img class="card-img-top" src=<?php echo get_the_post_thumbnail(); ?> <div
                                             class=" card-body">
-                                        <h5 class="card-title">
+                                        <h5 class="card-title" style= "color:<?php echo $card_text ?>">
                                             <?php the_title(); ?>
                                         </h5>
                                     </div>
 
-                                    <div class="card-body">
-                                        <p class="card-text">
+                                    <div class="card-body" style= "color:<?php echo $card_text ?>">
+                                        <p class="card-text" >
                                             <?php the_excerpt(); ?>
                                         </p>
                                         <ul class="list-group list-group-flush">
@@ -50,7 +59,7 @@ get_header(); // Include header template
                                             </p>
                                         </ul>
                                         <div class="cardButton">
-                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More...</a>
+                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary" style="background-color: <?php echo $button_bg?>; color: <?php echo $button_text ?>">Read More...</a>
                                         </div>
                                     </div>
                                 </div>

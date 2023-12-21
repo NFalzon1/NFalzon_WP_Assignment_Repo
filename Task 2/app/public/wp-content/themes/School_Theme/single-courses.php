@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
 
-<div class="pr_title">
-    <h2>
+<div class="pageTitle">
+    <h1>
         <?php the_title(); ?>
-    </h2>
+    </h1>
 </div>
 
 
