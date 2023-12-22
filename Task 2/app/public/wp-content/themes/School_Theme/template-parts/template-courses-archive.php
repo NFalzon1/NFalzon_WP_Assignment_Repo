@@ -20,9 +20,7 @@ $course_categories = get_terms(
 
 
 ?>
-<p>
-    <?php echo $btnText_hover ?>
-</p>
+
 <div class="pageTitle">
     <h1>
         <?php the_title(); ?>

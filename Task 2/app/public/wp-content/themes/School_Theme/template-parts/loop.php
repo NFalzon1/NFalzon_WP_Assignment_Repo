@@ -21,6 +21,7 @@
       )); //shows the pagination | mid_size controls how many other paginations are shown on both sides
       ?>
    
+   
 
 
   <? else:
@@ -28,3 +29,4 @@
   endif;
   ?>
 </div>
+

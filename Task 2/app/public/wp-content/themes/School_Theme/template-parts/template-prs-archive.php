@@ -13,7 +13,11 @@ $card_text = get_theme_mod("custom_card_text", "#ffffff");
 
 
 get_header(); // Include header template
+
 ?>
+
+
+
 <div class="pageTitle">
     <h1>
         <?php the_title(); ?>
@@ -30,27 +34,28 @@ get_header(); // Include header template
                         <?php
                         $args = array(
                             'post_type' => 'prs', // Replace with your actual custom post type slug
-                            'posts_per_page' => -1, // Display all posts
+                            'posts_per_page' => 9, // Display all posts
                         );
 
                         $query = new WP_Query($args);
 
                         if ($query->have_posts()):
+
                             $count = 0;
                             while ($query->have_posts()):
                                 $query->the_post();
                                 ?>
-                                <div class="col colCard" style="padding-bottom: 10%; " >
-                                    <div class="card" style="col; background-color:<?php echo $card_bg ?>" >
+                                <div class="col colCard" style="padding-bottom: 10%; ">
+                                    <div class="card" style="col; background-color:<?php echo $card_bg ?>">
                                         <img class="card-img-top" src=<?php echo get_the_post_thumbnail(); ?> <div
                                             class=" card-body">
-                                        <h5 class="card-title" style= "color:<?php echo $card_text ?>">
+                                        <h5 class="card-title" style="color:<?php echo $card_text ?>">
                                             <?php the_title(); ?>
                                         </h5>
                                     </div>
 
-                                    <div class="card-body" style= "color:<?php echo $card_text ?>">
-                                        <p class="card-text" >
+                                    <div class="card-body" style="color:<?php echo $card_text ?>">
+                                        <p class="card-text">
                                             <?php the_excerpt(); ?>
                                         </p>
                                         <ul class="list-group list-group-flush">
@@ -59,7 +64,9 @@ get_header(); // Include header template
                                             </p>
                                         </ul>
                                         <div class="cardButton">
-                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary" style="background-color: <?php echo $button_bg?>; color: <?php echo $button_text ?>">Read More...</a>
+                                            <a href="<?php the_permalink(); ?>" class="btn btn-primary"
+                                                style="background-color: <?php echo $button_bg ?>; color: <?php echo $button_text ?>">Read
+                                                More...</a>
                                         </div>
                                     </div>
                                 </div>
@@ -76,18 +83,31 @@ get_header(); // Include header template
                             }
                             endwhile;
 
+                            the_posts_pagination(array(
+                                'mid_size' => 1,
+                                'prev_text' => "Newer",
+                                'next_text' => "Older"
+                              )); //shows the pagination | mid_size controls how many other paginations are shown on both sides
+
+
+                        
                             // Restore original post data
                             wp_reset_postdata();
+
 
                         else:
                             // No posts found
                             echo 'No posts found';
 
                         endif;
+
+
                         ?>
+
             </div>
             </main>
         </div>
+
     </div>
     <div class="col-3">
         <?php get_sidebar() ?>
@@ -95,14 +115,8 @@ get_header(); // Include header template
     </div>
 </div>
 
-<?php
-the_posts_pagination(array(
-    'mid_size' => 1,
-    'prev_text' => "Newer",
-    'next_text' => "Older"
-)); //shows the pagination | mid_size controls how many other paginations are shown on both sides
-?>
-?>
+
+
 
 <?php
 get_footer(); // Include footer template

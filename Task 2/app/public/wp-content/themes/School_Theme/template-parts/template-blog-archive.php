@@ -35,7 +35,8 @@ get_header(); // Include header template
                         <?php
                         $args = array(
                             'post_type' => 'post', // Replace with your actual custom post type slug
-                            'posts_per_page' => -1, // Display all posts
+                            'posts_per_page' => 3, // Display all posts
+                            'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
                         );
 
                         $query = new WP_Query($args);
@@ -77,18 +78,46 @@ get_header(); // Include header template
                             if ($count % $noColumns === 0) {
                                 echo '</div><div class="row">';
                             }
+
+                            
+
+
                             endwhile;
 
-                            // Restore original post data
-                            wp_reset_postdata();
+                            ?>
+
+                            <div class="container">
+                                <div class="row">
+                                    <?php 
+ the_posts_pagination(array(
+    'mid_size' => 1,
+    'prev_text' => "Newer",
+    'next_text' => "Older"
+  )); //shows the pagination | mid_size controls how many other paginations are shown on both sides
+
+// Restore original post data
+wp_reset_postdata();
+
+                                    ?>
+                                </div>
+                            </div>
+                            <?php
+
+                           
+                           
 
                         else:
                             // No posts found
                             echo 'No posts found';
 
                         endif;
+
+                        
                         ?>
             </div>
+
+            
+
             </main>
         </div>
     </div>
