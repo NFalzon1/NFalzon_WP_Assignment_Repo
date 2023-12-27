@@ -109,6 +109,30 @@ function custom_customize_register($wp_customize)
     ));
 
 
+    $wp_customize->add_setting('custom_gen_sidebar', array(
+        'default' => '1',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('custom_gen_sidebar', array(
+        'type' => 'select',
+        'label' => 'Select if a sidebar is required for the website.',
+        'choices' => array(
+            '1' => 'The sidebar is required',
+            '2' => 'The sidebar is not needed',
+        ),
+
+        'section' => 'custom_gen_options'
+    ));
+
+    
+   
+    $wp_customize->add_section('custom_card_options', array(
+        'title' => 'Blog Card Settings',
+        'description' => 'You can change the card options here'
+
+    ));
+
     $wp_customize->add_setting('custom_card_bg', array(
         'default' => '#1e73be',
     ));
@@ -116,7 +140,7 @@ function custom_customize_register($wp_customize)
     $wp_customize->add_control(
         new WP_Customize_Color_Control($wp_customize, 'custom_card_bg', array(
             'label' => 'Choose the Background colour of the Card',
-            'section' => 'custom_gen_options',
+            'section' => 'custom_card_options',
             'settings' => 'custom_card_bg'
         ))
     );
@@ -129,7 +153,7 @@ function custom_customize_register($wp_customize)
     $wp_customize->add_control(
         new WP_Customize_Color_Control($wp_customize, 'custom_card_text', array(
             'label' => 'Choose the colour of the Card Text',
-            'section' => 'custom_gen_options',
+            'section' => 'custom_card_options',
             'settings' => 'custom_card_text'
         ))
     );
@@ -142,7 +166,7 @@ function custom_customize_register($wp_customize)
     $wp_customize->add_control(
         new WP_Customize_Color_Control($wp_customize, 'custom_button_bg', array(
             'label' => 'Choose the colour of the Buttons',
-            'section' => 'custom_gen_options',
+            'section' => 'custom_card_options',
             'settings' => 'custom_button_bg'
         ))
     );
@@ -155,7 +179,7 @@ function custom_customize_register($wp_customize)
     $wp_customize->add_control(
         new WP_Customize_Color_Control($wp_customize, 'custom_button_text', array(
             'label' => 'Choose the colour of the Buttons Text',
-            'section' => 'custom_gen_options',
+            'section' => 'custom_card_options',
             'settings' => 'custom_button_text'
         ))
     );
@@ -167,7 +191,7 @@ function custom_customize_register($wp_customize)
     $wp_customize->add_control(
         new WP_Customize_Color_Control($wp_customize, 'custom_button_hover', array(
             'label' => 'Choose the colour of the Buttons whilst on hover',
-            'section' => 'custom_gen_options',
+            'section' => 'custom_card_options',
             'settings' => 'custom_button_hover'
         ))
     );
@@ -179,11 +203,10 @@ function custom_customize_register($wp_customize)
     $wp_customize->add_control(
         new WP_Customize_Color_Control($wp_customize, 'custom_buttonText_hover', array(
             'label' => 'Choose the colour of the Button Text whilst on hover',
-            'section' => 'custom_gen_options',
+            'section' => 'custom_card_options',
             'settings' => 'custom_buttonText_hover'
         ))
     );
-    
 
 
 

@@ -27,6 +27,15 @@ function classExample_themefooter()
     echo "<div class='container-fluid' style='background-color:{$footer_bg};'><div class='row'><div class='col text-center'><p style='color:{$footer_text};'>Built by &copy; Nicholas Falzon</p></div></div></div>";
 }
 
+function custom_sidebar_option()
+{
+    $sidebar_option = get_theme_mod("custom_gen_sidebar");
+
+    if ($sidebar_option == "1"){
+
+    }
+}
+
 function custom_logo_placement()
 {
     $top_placement = get_theme_mod("custom_logo_placement", "top");
@@ -150,7 +159,7 @@ function courses_menu_page()
             <label for="course_details">Course Details:</label> <br>
             <textarea type="text" id="course_details" name="course_details" name="course_details"
                 style="width:400px; height:100px;">
-                                </textarea>
+                                    </textarea>
 
             <br><br>
 
@@ -171,7 +180,7 @@ function handle_new_course_submission()
         $course_code = sanitize_text_field($_POST['course_code']);
         $course_duration = sanitize_text_field($_POST['course_duration']);
         $course_details = sanitize_text_field($_POST['course_details']);
-        
+
 
         // Inside the WordPress loop
         $selected_category_id = sanitize_text_field($_POST['course_category']); // Adjust the field name accordingly
@@ -192,7 +201,7 @@ function handle_new_course_submission()
 
 
         $taxonomy_slug = 'course_categories';
-        
+
         $content .= '<p><strong>Course Code:</strong> ' . $course_code . '<br> <strong>Course Duration:</strong>' . $course_duration . '<br> ' . '<strong>Course Category: </strong>' . $category_name . '</p> <br> <strong>Course Description:</strong>' . $course_details . '</p>';
 
         // Create a new course post
@@ -201,7 +210,7 @@ function handle_new_course_submission()
             'post_content' => $content,
             'post_status' => 'publish',
             'post_type' => 'courses', // Your custom post type slug
-            'tax_input'    => array(
+            'tax_input' => array(
                 $taxonomy_slug => array($category_name),
             ),
         );
@@ -218,7 +227,8 @@ function handle_new_course_submission()
     }
 }
 
-function set_featured_image_for_press_releases() {
+function set_featured_image_for_press_releases()
+{
     // Get the URL of the current logo from theme customization
     $logo_url = get_theme_mod('diwp_logo'); // Assuming 'custom_logo' is the setting ID
 
@@ -253,6 +263,7 @@ function remove_add_new_submenu()
 {
     remove_submenu_page('edit.php?post_type=courses', 'post-new.php?post_type=courses');
 }
+
 
 add_action('admin_menu', 'remove_add_new_submenu');
 

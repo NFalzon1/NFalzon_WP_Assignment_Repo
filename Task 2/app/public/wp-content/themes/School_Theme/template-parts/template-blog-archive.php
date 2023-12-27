@@ -3,6 +3,19 @@
 Template Name: Blog Template
 */
 
+$sidebar_option = get_theme_mod("custom_gen_sidebar");
+
+$sidebar_css_option = "";
+$col_class = "";
+
+if ($sidebar_option == "1"){
+    $sidebar_css_option = "display:block";
+    $col_class = "col-8 ";
+}else{
+    $sidebar_css_option = "display:none";
+    $col_class = "col";
+}
+
 
 $button_bg = get_theme_mod("custom_button_bg", "#ffffff");
 $button_text = get_theme_mod("custom_button_text", "#ffffff");
@@ -26,7 +39,7 @@ get_header(); // Include header template
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8 ">
+        <div class="<?php echo $col_class ?> ">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
@@ -79,9 +92,6 @@ get_header(); // Include header template
                                 echo '</div><div class="row">';
                             }
 
-                            
-
-
                             endwhile;
 
                             ?>
@@ -122,7 +132,7 @@ wp_reset_postdata();
         </div>
     </div>
 
-    <div class="col">
+    <div class="col" style="<?php echo $sidebar_css_option; ?>">
         <?php get_sidebar() ?>
     </div>
 </div>
