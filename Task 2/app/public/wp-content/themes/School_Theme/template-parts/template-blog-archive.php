@@ -6,14 +6,11 @@ Template Name: Blog Template
 $sidebar_option = get_theme_mod("custom_gen_sidebar");
 
 $sidebar_css_option = "";
-$col_class = "";
 
 if ($sidebar_option == "1"){
     $sidebar_css_option = "display:block";
-    $col_class = "col-8 ";
 }else{
     $sidebar_css_option = "display:none";
-    $col_class = "col";
 }
 
 
@@ -38,17 +35,17 @@ get_header(); // Include header template
 </div>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="<?php echo $col_class ?> ">
+    <div class="row columnClass">
+        <div class="col-8">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
 
-                    <div class="row">
+                    <div class="row" >
                         <?php
                         $args = array(
                             'post_type' => 'post', // Replace with your actual custom post type slug
-                            'posts_per_page' => 3, // Display all posts
+                            'posts_per_page' => 8, // Display all posts
                             'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
                         );
 
@@ -60,7 +57,7 @@ get_header(); // Include header template
                                 $query->the_post();
                                 ?>
                                 <div class="col cardCol" style="padding-bottom: 10%;">
-                                    <div class="card" style="col; background-color:<?php echo $card_bg ?>">
+                                    <div class="card" style="col; background-color:<?php echo $card_bg ?>; height: 100%">
                                         <img class="card-img-top cardImage" src=<?php echo get_the_post_thumbnail(); ?> <div
                                             class=" card-body">
                                         <h5 class="card-title" style= "color:<?php echo $card_text ?>">

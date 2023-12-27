@@ -3,7 +3,7 @@
 Template Name: Press Releases Template
 */
 $noColumns = get_theme_mod('custom_gen_col_count', '3');
-
+$sidebar_option = get_theme_mod("custom_gen_sidebar");
 $button_bg = get_theme_mod("custom_button_bg", "#ffffff");
 $button_text = get_theme_mod("custom_button_text", "#ffffff");
 
@@ -11,6 +11,17 @@ $button_text = get_theme_mod("custom_button_text", "#ffffff");
 $card_bg = get_theme_mod("custom_card_bg", "#ffffff");
 $card_text = get_theme_mod("custom_card_text", "#ffffff");
 
+
+
+$sidebar_option = get_theme_mod("custom_gen_sidebar");
+
+$sidebar_css_option = "";
+
+if ($sidebar_option == "1"){
+    $sidebar_css_option = "display:block";
+}else{
+    $sidebar_css_option = "display:none";
+}
 
 get_header(); // Include header template
 
@@ -24,8 +35,8 @@ get_header(); // Include header template
     </h1>
 </div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
+    <div class="row columnClass">
+        <div class="col-8">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
@@ -34,7 +45,7 @@ get_header(); // Include header template
                         <?php
                         $args = array(
                             'post_type' => 'prs', // Replace with your actual custom post type slug
-                            'posts_per_page' => 9, // Display all posts
+                            'posts_per_page' => 8, // Display all posts
                         );
 
                         $query = new WP_Query($args);
@@ -46,7 +57,7 @@ get_header(); // Include header template
                                 $query->the_post();
                                 ?>
                                 <div class="col colCard" style="padding-bottom: 10%; ">
-                                    <div class="card" style="col; background-color:<?php echo $card_bg ?>">
+                                    <div class="card" style="col; background-color:<?php echo $card_bg ?>; height: 100%;">
                                         <img class="card-img-top" src=<?php echo get_the_post_thumbnail(); ?> <div
                                             class=" card-body">
                                         <h5 class="card-title" style="color:<?php echo $card_text ?>">
@@ -87,10 +98,10 @@ get_header(); // Include header template
                                 'mid_size' => 1,
                                 'prev_text' => "Newer",
                                 'next_text' => "Older"
-                              )); //shows the pagination | mid_size controls how many other paginations are shown on both sides
-
-
+                            )); //shows the pagination | mid_size controls how many other paginations are shown on both sides
                         
+
+
                             // Restore original post data
                             wp_reset_postdata();
 
@@ -109,7 +120,7 @@ get_header(); // Include header template
         </div>
 
     </div>
-    <div class="col-3">
+    <div class="col" style="<?php echo $sidebar_css_option; ?>">
         <?php get_sidebar() ?>
 
     </div>

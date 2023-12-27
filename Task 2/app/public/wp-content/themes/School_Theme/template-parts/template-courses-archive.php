@@ -19,6 +19,8 @@ $course_categories = get_terms(
 );
 
 
+
+
 ?>
 
 <div class="pageTitle">

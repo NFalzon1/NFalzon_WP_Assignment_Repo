@@ -100,9 +100,7 @@ function custom_customize_register($wp_customize)
         'label' => 'Column Count',
         'choices' => array(
             '2' => '2 Columns',
-            '3' => '3 Columns',
             '4' => '4 Columns',
-            '5' => '5 Columns',
         ),
 
         'section' => 'custom_gen_options'
