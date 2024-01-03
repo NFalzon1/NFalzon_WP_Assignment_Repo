@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php get_header(); 
+
+?>
+
+
 
 <div class="background-image-container">
     <img src="<?php echo get_theme_mod('diwp_logo'); ?>" />

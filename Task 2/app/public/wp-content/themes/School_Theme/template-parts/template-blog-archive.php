@@ -3,13 +3,14 @@
 Template Name: Blog Template
 */
 
+
 $sidebar_option = get_theme_mod("custom_gen_sidebar");
 
 $sidebar_css_option = "";
 
-if ($sidebar_option == "1"){
+if ($sidebar_option == "1") {
     $sidebar_css_option = "display:block";
-}else{
+} else {
     $sidebar_css_option = "display:none";
 }
 
@@ -41,12 +42,12 @@ get_header(); // Include header template
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
 
-                    <div class="row" >
+                    <div class="row">
                         <?php
                         $args = array(
                             'post_type' => 'post', // Replace with your actual custom post type slug
                             'posts_per_page' => 8, // Display all posts
-                            'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
+                            'paged' => $paged
                         );
 
                         $query = new WP_Query($args);
@@ -60,12 +61,12 @@ get_header(); // Include header template
                                     <div class="card" style="col; background-color:<?php echo $card_bg ?>; height: 100%">
                                         <img class="card-img-top cardImage" src=<?php echo get_the_post_thumbnail(); ?> <div
                                             class=" card-body">
-                                        <h5 class="card-title" style= "color:<?php echo $card_text ?>">
+                                        <h5 class="card-title" style="color:<?php echo $card_text ?>">
                                             <?php the_title(); ?>
                                         </h5>
                                     </div>
 
-                                    <div class="card-body" style= "color:<?php echo $card_text ?>">
+                                    <div class="card-body" style="color:<?php echo $card_text ?>">
                                         <?php the_excerpt(); ?>
                                         <ul class="list-group list-group-flush">
                                             <p>Uploaded on:
@@ -73,7 +74,9 @@ get_header(); // Include header template
                                             </p>
                                         </ul>
                                         <div class="cardButton">
-                                            <a href="<?php the_permalink(); ?>" class="btn" style="background-color: <?php echo $button_bg?>; color: <?php echo $button_text ?>">Read More</a>
+                                            <a href="<?php the_permalink(); ?>" class="btn"
+                                                style="background-color: <?php echo $button_bg ?>; color: <?php echo $button_text ?>">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -91,27 +94,6 @@ get_header(); // Include header template
 
                             endwhile;
 
-                            ?>
-
-                            <div class="container">
-                                <div class="row">
-                                    <?php 
- the_posts_pagination(array(
-    'mid_size' => 1,
-    'prev_text' => "Newer",
-    'next_text' => "Older"
-  )); //shows the pagination | mid_size controls how many other paginations are shown on both sides
-
-// Restore original post data
-wp_reset_postdata();
-
-                                    ?>
-                                </div>
-                            </div>
-                            <?php
-
-                           
-                           
 
                         else:
                             // No posts found
@@ -123,7 +105,7 @@ wp_reset_postdata();
                         ?>
             </div>
 
-            
+
 
             </main>
         </div>

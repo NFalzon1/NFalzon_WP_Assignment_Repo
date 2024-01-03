@@ -19,7 +19,7 @@
 <body <?php body_class(); ?>> <!--Adds classes to body-->
   <div class='container-fluid' style='background-color:<?php echo $footer_bg ?>'>
 
-    <div id="theme_header">
+    <div id="theme_header" class="navHeader">
 
       <div <?php if ($logoPos == "top") {
         echo "id='logo_image_top'";
@@ -30,7 +30,7 @@
       </div>
 
       <header class="navbar navbar-expand-lg paddinglfrt">
-        <div class="container-fluid">
+        <div class="container-fluid menuButton">
           <div <?php if ($logoPos == "left") {
             echo "id='logo_image_left'";
           } else {
@@ -38,7 +38,7 @@
           } ?>>
             <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_theme_mod('diwp_logo'); ?>" /></a>
           </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

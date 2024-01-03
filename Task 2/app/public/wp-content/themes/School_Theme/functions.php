@@ -31,7 +31,7 @@ function custom_sidebar_option()
 {
     $sidebar_option = get_theme_mod("custom_gen_sidebar");
 
-    if ($sidebar_option == "1"){
+    if ($sidebar_option == "1") {
 
     }
 }
@@ -159,7 +159,7 @@ function courses_menu_page()
             <label for="course_details">Course Details:</label> <br>
             <textarea type="text" id="course_details" name="course_details" name="course_details"
                 style="width:400px; height:100px;">
-                                    </textarea>
+                                        </textarea>
 
             <br><br>
 
@@ -249,6 +249,7 @@ function set_featured_image_for_press_releases()
         }
     }
 }
+
 
 // Hook this function to run once
 add_action('after_setup_theme', 'set_featured_image_for_press_releases');

@@ -31,7 +31,7 @@ endif;
 ?>
 
 
-<div class="container-fluid footerStyle <?php echo $footer_class . "" . $footer_text ?>">
+<div class="container-fluid-w100 footerStyle <?php echo $footer_class . "" . $footer_text ?>">
 
 </div>
 <div class='container-fluid' style='background-color:<?php echo $footer_backgroundcolour ?>;'>

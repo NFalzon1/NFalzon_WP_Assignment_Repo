@@ -71,6 +71,8 @@ function custom_customize_register($wp_customize)
 
     ));
 
+    
+
     $wp_customize->add_setting('custom_logo_placement', array(
         'default' => 'top',
         'sanitize_callback' => 'sanitize_text_field'
@@ -87,9 +89,7 @@ function custom_customize_register($wp_customize)
         'section' => 'custom_gen_options'
     ));
 
-
-
-
+    
     $wp_customize->add_setting('custom_gen_col_count', array(
         'default' => '3',
         'sanitize_callback' => 'sanitize_text_field'
@@ -205,11 +205,6 @@ function custom_customize_register($wp_customize)
             'settings' => 'custom_buttonText_hover'
         ))
     );
-
-
-
-
-
 
 }
 

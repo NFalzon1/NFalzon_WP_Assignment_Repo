@@ -305,6 +305,10 @@ text-decoration: none;
   font-size: 16px;
 }
 
+.text-align p{
+  font-size: 24px;
+}
+
 .author_desc_post{
   margin-top: 100px;
   display: flex;
@@ -763,3 +767,32 @@ text-decoration: none;
   .format-audio {}
   /* .format-chat {} */
 
+
+  @media only screen and (max-width: 600px) {
+    .navHeader{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-css{
+      display: flex;
+      flex-direction: column;
+    }
+
+    #menu-primary-menu{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #menu-primary-menu li{
+      padding-top: 10%;
+      padding-bottom: 10%;
+    }
+
+    .menuButton{
+      display: flex;
+      flex-direction: column;
+
+    }
+  }
