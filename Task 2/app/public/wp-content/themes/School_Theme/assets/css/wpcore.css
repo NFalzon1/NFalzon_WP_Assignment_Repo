@@ -774,6 +774,15 @@ text-decoration: none;
       flex-direction: column;
     }
 
+    .navbar ul ul{
+      margin-top: 5%;
+      top: 3em;
+    }
+
+    #menu-primary-menu li ul{
+      left: -2.5em;
+    }
+
     .footer-css{
       display: flex;
       flex-direction: column;
@@ -788,11 +797,37 @@ text-decoration: none;
     #menu-primary-menu li{
       padding-top: 10%;
       padding-bottom: 10%;
+      justify-content: center;
     }
 
     .menuButton{
       display: flex;
       flex-direction: column;
-
     }
+
+    .footer-css div{
+      padding-top: 5%;
+      padding-bottom: 7%;
+    }
+
+    .text-align{
+      padding: 5%;
+    }
+
+    .text-align p{
+      padding-bottom: 5%;
+    }
+
+    .pageTitle{
+      align-content: center;
+    }
+
+    .card-title{
+      text-align: center;
+    }
+
+    .card-body p{
+      text-align: center;
+    }
+
   }
