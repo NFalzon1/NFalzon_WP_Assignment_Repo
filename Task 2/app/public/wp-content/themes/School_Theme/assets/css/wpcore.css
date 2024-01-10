@@ -1,3 +1,80 @@
+@media only screen and (max-width: 600px) {
+  .navHeader{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar ul ul{
+    margin-top: 5%;
+    top: 3em;
+  }
+
+  .footer-css{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-primary-menu-container{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+
+  #menu-primary-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #menu-primary-menu li{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .menuButton{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-css div{
+    padding-top: 5%;
+    padding-bottom: 7%;
+  }
+
+  .text-align{
+    padding: 5%;
+  }
+
+  .text-align p{
+    padding-bottom: 5%;
+  }
+
+  .pageTitle{
+    align-content: center;
+  }
+
+  .card-title{
+    text-align: center;
+  }
+
+  .card-body p{
+    text-align: center;
+  }
+
+  .sub-menu{
+    width: 80% !important;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: block ;
+    margin-top: 1em !important;
+  }
+
+
+}
+
+
 /* Logo placement (top/left) */
 
 #logo_image_top{
@@ -119,7 +196,7 @@ border-top-right-radius: 10px;}
 }
 
 .navbar ul li:hover ul {
-  display:block;
+  display:block !important;
 }
 
 .menu li a{
@@ -768,66 +845,3 @@ text-decoration: none;
   /* .format-chat {} */
 
 
-  @media only screen and (max-width: 600px) {
-    .navHeader{
-      display: flex;
-      flex-direction: column;
-    }
-
-    .navbar ul ul{
-      margin-top: 5%;
-      top: 3em;
-    }
-
-    #menu-primary-menu li ul{
-      left: -2.5em;
-    }
-
-    .footer-css{
-      display: flex;
-      flex-direction: column;
-    }
-
-    #menu-primary-menu{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #menu-primary-menu li{
-      padding-top: 10%;
-      padding-bottom: 10%;
-      justify-content: center;
-    }
-
-    .menuButton{
-      display: flex;
-      flex-direction: column;
-    }
-
-    .footer-css div{
-      padding-top: 5%;
-      padding-bottom: 7%;
-    }
-
-    .text-align{
-      padding: 5%;
-    }
-
-    .text-align p{
-      padding-bottom: 5%;
-    }
-
-    .pageTitle{
-      align-content: center;
-    }
-
-    .card-title{
-      text-align: center;
-    }
-
-    .card-body p{
-      text-align: center;
-    }
-
-  }
